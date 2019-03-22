@@ -1,0 +1,62 @@
+1,I want a car that is trendy.
+2,I am fashion conscious.
+3,I do not have the time to worry about car maintenance.
+4,Basic transportation is all I need.
+5,Small cars are not prestigious.
+6,Today's cars last much longer than yesterday's.
+7,My car must function with total reliability.
+8,I want a car that is easy to handle.
+9,I am looking for a car which delivers a smooth ride.
+10,"When I buy a car, dependability is most important to me."
+11,Today's cars are more efficient than yesterday's.
+12,I want a car that is fuel economic.
+13,I love to drive.
+14,The car I buy must be able to handle long motorway journeys.
+15,I want the most equipment I can get for my money.
+16,I want a vehicle that is environmentally friendly.
+17,I want a car that is nippy and zippy.
+18,I prefer buying my next car from the same car manufacturer.
+19,I wish there were stricter exhaust regulations.
+20,One should not spend beyond ones means.
+21,Good aerodynamics help fuel economy.
+22,Small cars are much safer nowadays.
+23,Buying a car on a lower interest rate does not interest me.
+24,I want a car that drives well on country roads.
+25,I consider myself an authority on cars.
+26,Small cars are for kids.
+27,Small cars are for women.
+28,Domestic made is best made.
+29,A car is a fashion accessory to me.
+30,Having a masculine car is important to me.
+31,I want a comfortable car.
+32,City driving is my main concern.
+33,Fuel economy comes at the expense of performance.
+34,I want a practical car.
+35,I have always been fascinated by cars which have a cult following.
+36,I like to believe that the car I drive will one day become a cult car.
+37,I prefer cars with high performance.
+38,I do not believe that a Swatch branded car will be successful.
+39,Small cars take up less room in today's traffic.
+40,I prefer small cars.
+41,In today's world it is anti-social to drive big cars.
+42,Many manufacturers do not really care about their customers needs.
+43,I would rather deal with a manufacturer's rep than a salesperson.
+44,I want to buy a car that makes a statement about me.
+45,A car is an extension of oneself.
+46,I always want the latest style and design in a vehicle.
+47,When it comes to cars my heart rules my head.
+48,My car must have a very individual interior.
+49,Nowadays smart cars are mainly foreign brands.
+50,People ought to buy domestic products for the good of the country.
+51,I want a car equipped with the latest features and technology.
+52,I have a relationship with my car.
+53,Quality and reliability of products are my main concerns.
+54,Image is not important to me in a car.
+55,Cars all look the same these days.
+56,Most environmentally friendly products do not perform as well as those they replaced
+57,I want a car that has character.
+58,For me a car is a symbol of freedom and independence.
+59,I am interested in car maintenance.
+60,When buying a car I only consider a national make.
+61,The government should implement policies that favor public transportation.
+62,The government is right to tax large cars more heavily than small cars.
