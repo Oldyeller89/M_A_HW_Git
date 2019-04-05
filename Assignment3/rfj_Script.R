@@ -26,7 +26,7 @@ if (!require(psych)) {install.packages("psych"); library(psych)}
 #####################################################################################################
 
 # import data
-setwd("~/Documents/class/marketing analytics/cases/dominicks/data")
+setwd("C:\Users\sprih\OneDrive\Desktop\Marketing Analytics\M_A_HW_Git\Assignment3\data")
 rfjdata=read.csv(file="rfjdata.csv")    # weekly sales and price for each product and store
 rfjstore=read.csv(file="rfjstore.csv")  # store information
 rfjupc=read.csv(file="rfjupc.csv")      # product information
@@ -52,10 +52,10 @@ trop=rfjdata[which(rfjdata$upc==4850000102 & rfjdata$price>0 & rfjdata$move>0),]
 # set the random number seed to the samples will be the same when re-run
 nobs=nrow(trop)
 set.seed(1248765792)
-sample = sample.int(3, size=nobs, prob=c(.6,.2,.2), replace=TRUE)  # randomly split data into 3 groups
+sample = sample.int(2, size=nobs, prob=c(.7,.3), replace=TRUE)  # randomly split data into 3 groups
 trainsample=(sample==1)     # put 60% of the observations in the training sample
-validsample=(sample==2)     # put the other 20% in the validation sample
-predsample=(sample==3)      # put the other 20% in the validation sample
+#validsample=(sample==2)     # put the other 20% in the validation sample
+predsample=(sample==2)      # put the other 20% in the validation sample
 
 
 
