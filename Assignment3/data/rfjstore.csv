@@ -1,0 +1,97 @@
+"","sloc","szip","saddress","zone","bundle","combo","store"
+"1","River Forest",60305,"7501 W. North Ave.",1,"","",2
+"2","Park Ridge",60068,"1333 Dempster St.",2,"","",4
+"3","Palatine",60067,"223 Northwest HWY.",2,"","",5
+"4","Oak Lawn",60435,"8700 S. Cicero Ave.",5,"","",8
+"5","Morton Grove",60053,"6931 Dempster",2,"","",9
+"6","Chicago",60660,"6009 N. Broadway Ave.",7,"","M",12
+"7","Glenview",60025,"1020 Waukegan Rd.",1,"","M",14
+"8","River Grove",60171,"8355 W. Belmont Ave.",5,"","",18
+"9","Glen Ellyn",60137,"680 Roosevelt Rd.",NA,"","",19
+"10","Hanover Park",60103,"1440 Irving Park Rd.",6,"","",21
+"11","Chicago",60639,"2500 N. Central Ave.",NA,"","",25
+"12","Mt. Prospect",60054,"1145-55 Mt Prospect Pz.",2,"","",28
+"13","Park Ridge",60068,"1900 S. Cumberland Ave.",1,"","",32
+"14","Chicago",60657,"3012 N. Broadway Ave.",7,"","",33
+"15","Waukegan",60085,"1301 N. Lewis Ave.",NA,"","",39
+"16","Bridgeview",60455,"8825 S. Harlem Ave.",6,"","",40
+"17","Western Spring",60558,"14 Garden Market St.",2,"","",44
+"18","Wheeling",60090,"550 W. Dundee Rd.",2,"","",45
+"19","Carol Stream",60187,"525 S. Schmale Rd.",5,"","",46
+"20","Addison",60101,"545 W. Lake St.",2,"","",47
+"21","Schaumburg",60193,"20 E. Golf Rd.",2,"","",48
+"22","Downers Grove",60515,"120 E. Ogden Ave.",2,"","",49
+"23","Hickory Hills",60457,"8631 W. 95th St.",2,"","",50
+"24","Palos Heights",60463,"6401 W. 127th St.",3,"","",51
+"25","Northbrook",60062,"4125 Dundee Rd.",1,"","",52
+"26","Chicago",60662,"3145 W. Pratt Ave.",7,"","",53
+"27","Naperville",60540,"1295 E. Ogden Ave.",2,"","",54
+"28","Tinley Park",60577,"15960 S. Oak Park Ave.",NA,"","",55
+"29","Countryside",60525,"6704 Joliet Rd.",2,"","",56
+"30","Crystal Lake",60014,"6000 Northwest Hwy.",6,"B","",59
+"31","Downers Grove",60515,"1556 Butterfield Rd.",NA,"","",60
+"32","Northfield",60093,"1822 Willow Rd.",1,"","",62
+"33","Villa Park",60181,"302 W. North Ave.",2,"","",64
+"34","Hanover Park",60103,"1250 Lake St.",2,"","",65
+"35","Oak Brook Terrace",60521,"17W675 Roosevelt Rd.",4,"","",67
+"36","Chicago",60625,"5233 N. Lincoln Ave.",1,"","",68
+"37","",NA,"Now known as Store 137",NA,"","",69
+"38","Joliet",60435,"2132 Jefferson St.",6,"","",70
+"39","North Riverside",60546,"7401 W 25th St.",1,"B","C",71
+"40","Lincolnwood",60646,"7225 N. Cicero Ave.",1,"","",72
+"41","Chicago",60629,"7050 S. Pulaski Rd.",5,"","M",73
+"42","Norridge",60634,"7000 W. Forest Preserve",2,"","",74
+"43","Chicago",60640,"5235 N. Sheridan Rd.",7,"","",75
+"44","Chicago",60618,"3300 W. Belmont",2,"","M",76
+"45","Vernon Hills",60061,"Hawthorne Village Comns",6,"","M",77
+"46","Downers Grove",60516,"7241 Lemont Rd.",6,"","",78
+"47","Arlington Heights",60005,"325 Palatine Rd.",6,"","M",80
+"48","Mt. Prospect",60056,"1042 S. Elmhurst Rd.",2,"","",81
+"49","Lansing",60438,"17365 Torrence Ave.",6,"","M",83
+"50","Orland Park",60462,"15080 S. La Grange Rd.",2,"","",84
+"51","Chicago",60618,"3350 Western Ave.",2,"","M",86
+"52","Bensenville",60106,"1145 S. York Rd.",2,"","",88
+"53","Chicago",60632,"4700 S. Kedzie Ave.",2,"","M",89
+"54","Chicago",60617,"3454 E. 118th St.",10,"","",90
+"55","Oak Lawn",60453,"11024 S. Cicero Ave.",2,"","",91
+"56","Hazel Crest",60429,"3330 W. 183rd St.",2,"","",92
+"57","Evanston",60202,"525 Chicago Ave.",1,"","M",93
+"58","Bloomingdale",60108,"166 E. Lake St.",5,"","",94
+"59","Chicago",60634,"3649 N. Central Ave.",1,"","",95
+"60","Aurora",60506,"1971 W. Galena Blvd.",8,"","",97
+"61","Chicago",60638,"5829 S. Archer Ave.",12,"B","C",98
+"62","Chicago",60698,"3145 S. Ashland Ave.",11,"B","C",100
+"63","Des Plaines",60016,"1555 Lee St.",12,"B","C",101
+"64","Merrionette Park",60655,"3243 115th St.",15,"B","C",102
+"65","Bolingbrook",60439,"271 S. Bolingbrook Dr.",15,"B","C",103
+"66","St. Charles",60174,"2063 State Route 38",8,"","",104
+"67","Melrose Park",60160,"4200 W. Lake St.",12,"B","C",105
+"68","Montgomery",60538,"1840 Douglas Rd.",8,"","M",106
+"69","Westchester",60153,"3020 S. Wolf Rd.",2,"","",107
+"70","Park Forest",60466,"100 Norwood Square Dr.",NA,"","",108
+"71","Bannockburn",60015,"2503 Waukegan Rd.",7,"","",109
+"72","East Dundee",60118,"535 Dundee Ave.",2,"","M",110
+"73","Chicago",60620,"122 W. 79th St.",1,"","",111
+"74","Buffalo Grove",60090,"1160 Lake Cook Rd.",14,"B","C",112
+"75","Chicago",60646,"6312 N. Nagle Ave.",2,"","",113
+"76","Calumet City",60409,"1968 Sibley Blvd.",12,"B","C",114
+"77","Naperville",60540,"1300 S. Naper Blvd.",12,"B","C",115
+"78","Elmhurst",60126,"535 W. St. Charles Rd.",2,"","M",116
+"79","Schaumburg",60193,"580 S. Roselle Rd.",2,"","",117
+"80","Morton Grove",60053,"5747 Dempster St.",10,"","",118
+"81","Buffalo Grove",60090,"45 E. Dundee Rd.",2,"","",119
+"82","Willowbrook",60514,"6300 S. Robert Kingery",12,"B","C",121
+"83","Hoffman Estates",60194,"2575 W. Golf Rd.",16,"B","C",122
+"84","Chicago",60630,"4014 W. Lawrence",1,"","M",123
+"85","Oak Park",60302,"259 Lake St.",1,"","M",124
+"86","Wheaton",60187,"Danada Square East",12,"B","C",126
+"87","Chicago",60645,"6623 N. Damen Ave.",11,"B","C",128
+"88","Lake Zurich",60047,"345 S. Rand Rd.",12,"B","C",129
+"89","Chicago",60649,"2101 E. 71st St.",1,"B","",130
+"90","Rolling Meadows",NA,"2801 Kirchoff Rd.",12,"B","C",131
+"91","Matteson",60443,"4233 W. 211th St.",15,"B","C",132
+"92","Niles",60648,"8900 Greenwood Ave",12,"B","C",133
+"93","West Chicago",NA,"RT.59/North Ave",13,"B","C",134
+"94","Buffalo Grove",60089,"450 Half Day Rd.",10,"B","C",136
+"95","Evanston",60201,"2748 Green Bay Rd.",1,"","M",137
+"96","Bloomingdale",60108,"144 S. Gary Ave.",NA,"","C",139
