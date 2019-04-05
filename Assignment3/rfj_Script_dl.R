@@ -142,9 +142,7 @@ write.csv("mdl2.parm")  # you can import this into excel
 # notice since store is a factor it will include store specific intercepts
 #        store*lprice means to include a separate lprice coefficient for each store
 ( mdl3=lm(lmove~store+store*lprice+feat+disp,data=tropDemo[trainsample,]) )
-( mdl3=lm(lmove~store+store*lprice+feat+disp,data=tropDemo[trainsample,]) )
-cor(tropDemo["lmove"], tropDemo["age60"])
-tropDemo[,1]
+( mdl3=lm(lmove~store+store*lprice+feat+disp+store*scluster,data=tropDemo[trainsample,]) )
 
 # # plot the results
 # plot(lmove~lprice,data=tropDemo[which(tropDemo$store==5),])
