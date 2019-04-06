@@ -56,7 +56,7 @@ trop=rfjdata[which(rfjdata$upc==4850000102 & rfjdata$price>0 & rfjdata$move>0),]
 
 #add minute maid price comparison into trop data
 competitor=rfjdata[which(rfjdata$upc==2500002606 & rfjdata$price>0 & rfjdata$move>0),]
-myvars <- c("store", "week", "lprice","move")
+myvars <- c("store", "week", "lprice","lmove")
 competitor = competitor[myvars]
 colnames(competitor) <- c("store", "week", "MMlprice", "MMmove")
 trop <- merge(x = trop, y = competitor, by=c("store","week"))
@@ -67,7 +67,7 @@ trop$MMpercCheaper <- (trop$MMlprice - trop$lprice) / trop$MMlprice
 
 #Florida Gold
 competitor=rfjdata[which(rfjdata$upc==1110000142 & rfjdata$price>0 & rfjdata$move>0),]  
-myvars <- c("store", "week", "lprice","move")
+myvars <- c("store", "week", "lprice","lmove")
 competitor = competitor[myvars]
 colnames(competitor) <- c("store", "week", "FGlprice", "FGmove")
 trop <- merge(x = trop, y = competitor, by=c("store","week"))
@@ -78,7 +78,7 @@ trop$FGpercCheaper <- (trop$FGlprice - trop$lprice) / trop$FGlprice
 
 #HH OJ
 competitor=rfjdata[which(rfjdata$upc==3828154001 & rfjdata$price>0 & rfjdata$move>0),] 
-myvars <- c("store", "week", "lprice","move")
+myvars <- c("store", "week", "lprice","lmove")
 competitor = competitor[myvars]
 colnames(competitor) <- c("store", "week", "HHlprice", "HHmove")
 trop <- merge(x = trop, y = competitor, by=c("store","week"))
@@ -89,7 +89,7 @@ trop$HHpercCheaper <- (trop$HHlprice - trop$lprice) / trop$HHlprice
 
 #TreeFresh OJ
 competitor=rfjdata[which(rfjdata$upc==7271850001 & rfjdata$price>0 & rfjdata$move>0),]
-myvars <- c("store", "week", "lprice","move")
+myvars <- c("store", "week", "lprice","lmove")
 competitor = competitor[myvars]
 colnames(competitor) <- c("store", "week", "TFlprice", "TFmove")
 trop <- merge(x = trop, y = competitor, by=c("store","week"))
@@ -100,7 +100,7 @@ trop$TFpercCheaper <- (trop$TFlprice - trop$lprice) / trop$TFlprice
 
 #TreeFresh OJ
 competitor=rfjdata[which(rfjdata$upc==4850000139 & rfjdata$price>0 & rfjdata$move>0),]
-myvars <- c("store", "week", "lprice","move")
+myvars <- c("store", "week", "lprice","lmove")
 competitor = competitor[myvars]
 colnames(competitor) <- c("store", "week", "pureTroplprice", "pureTropmove")
 trop <- merge(x = trop, y = competitor, by=c("store","week"))
@@ -132,7 +132,7 @@ predsample=(sample==3)      # put the other 15% in the validation sample
 #####################################################################################################
 
 ## log linear model (pooled model)
-( mdl1=lm(lmove~lprice+perCheaperThanMean+lessThanMM+lessThanFG+lessThanHH+lessThanTF+feat+disp,data=trop[trainsample,]) )
+( mdl1=lm(lmove~lprice+feat+disp,data=trop[trainsample,]) )
 
 # plot all data
 plot(lmove~lprice,data=trop)
