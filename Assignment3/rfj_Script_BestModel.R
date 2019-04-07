@@ -98,7 +98,7 @@ trop$lessThanTF <- trop$TFlprice > trop$lprice
 #find comparative price difference (percentage lower than MM)
 trop$TFpercCheaper <- (trop$TFlprice - trop$lprice) / trop$TFlprice
 
-#TreeFresh OJ
+#Trop pure prm
 competitor=rfjdata[which(rfjdata$upc==4850000139 & rfjdata$price>0 & rfjdata$move>0),]
 myvars <- c("store", "week", "lprice","lmove")
 competitor = competitor[myvars]
@@ -109,10 +109,20 @@ trop$lessThanpureTrop <- trop$pureTroplprice > trop$lprice
 #find comparative price difference (percentage lower than MM)
 trop$pureTroppercCheaper <- (trop$pureTroplprice - trop$lprice) / trop$pureTroplprice
 
+#trop homestyle
+competitor=rfjdata[which(rfjdata$upc==4850000139 & rfjdata$price>0 & rfjdata$move>0),]
+myvars <- c("store", "week", "lprice","lmove")
+competitor = competitor[myvars]
+colnames(competitor) <- c("store", "week", "HSlprice", "HSmove")
+trop <- merge(x = trop, y = competitor, by=c("store","week"))
+#create binary row of whether tropicana is cheaper than MM
+trop$lessThanHS <- trop$HSlprice > trop$lprice
+#find comparative price difference (percentage lower than MM)
+trop$HSpercCheaper <- (trop$HSlprice - trop$lprice) / trop$HSlprice
 
-trop$perCheaperThanMean <- (((trop$MMlprice+trop$FGlprice+trop$HHlprice+trop$TFlprice+trop$pureTroplprice)/5) - trop$lprice) / trop$lprice
-trop$cheapest <- (trop$lessThanTF & trop$lessThanHH & trop$FGpercCheaper & trop$MMpercCheaper & trop$pureTroppercCheaper)
 
+trop$perCheaperThanMean <- (((trop$MMlprice+trop$FGlprice+trop$HHlprice+trop$TFlprice+trop$pureTroplprice+trop$HSlprice)/6) - trop$lprice) / trop$lprice
+trop$cheapest <- (trop$lessThanMM & trop$lessThanFG & trop$lessThanHH & trop$lessThanTF & trop$lessThanpureTrop & trop$lessThanHS)
 
 #merge demographics dataset into rfjdata
 #trop = merge(x = trop, y = rfjdemo, by = "store")
@@ -161,10 +171,13 @@ describeBy(cbind(err1,sqerr1,abserr1),group=sample,fast=TRUE)   # summarize the 
 ## log linear model (store model)
 # notice since store is a factor it will include store specific intercepts
 #        store*lprice means to include a separate lprice coefficient for each store
+
+#per store model
 #( mdl2=lm(lmove~store+store*lprice+feat+disp,data=trop[trainsample,]) )
-( mdl2=lm(lmove~store+store*lprice+cheapest+perCheaperThanMean+feat+disp,data=trop[trainsample,]) )
-#( mdl2=lm(lmove~store+store*lprice+MMpercCheaper+FGpercCheaper+feat+disp,data=trop[trainsample,]) )
-#( mdl2=lm(lmove~store+store*lprice+HHmove+MMmove+FGmove+TFmove+feat+disp,data=trop[trainsample,]) )
+
+#improved model
+( mdl2=lm(lmove~store+store*lprice+perCheaperThanMean+feat+disp,data=trop[trainsample,]) )
+
 
 # plot the results
 plot(lmove~lprice,data=trop[which(trop$store==5),])
