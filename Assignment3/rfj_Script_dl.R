@@ -52,7 +52,7 @@ trop=rfjdata[which(rfjdata$upc==4850000102 & rfjdata$price>0 & rfjdata$move>0),]
 
 help("merge.data.frame")
 rm(tropDemo)
-tropDemo = merge(trop, rfjdemo, by = "store")
+tropDemo = merge(trop, rfjdemo, by = "store",all.x=TRUE)
 
 # set the random number seed to the samples will be the same when re-run
 nobs=nrow(trop)
@@ -142,7 +142,12 @@ write.csv("mdl2.parm")  # you can import this into excel
 # notice since store is a factor it will include store specific intercepts
 #        store*lprice means to include a separate lprice coefficient for each store
 ( mdl3=lm(lmove~store+store*lprice+feat+disp,data=tropDemo[trainsample,]) )
-( mdl3=lm(lmove~store+store*lprice+feat+disp+store*scluster,data=tropDemo[trainsample,]) )
+
+rm(mdl3)
+rm(pred3)
+rm(err3)
+rm(abserr3)
+( mdl3=lm(lmove~store+store*lprice+feat+disp+store*income,data=tropDemo[trainsample,]) )
 
 # # plot the results
 # plot(lmove~lprice,data=tropDemo[which(tropDemo$store==5),])
