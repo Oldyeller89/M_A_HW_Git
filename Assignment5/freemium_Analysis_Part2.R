@@ -40,7 +40,7 @@ if (!require(visreg)) {install.packages("visreg"); library(visreg)}
 if (!require(ROCR)) {install.packages("ROCR"); library(ROCR)}
 
 # import dataset from file (change the directory to where your data is stored)
-setwd("~/Documents/class/marketing analytics/cases/freemium/data")  # !! change to your directory !!
+#setwd("~/Documents/class/marketing analytics/cases/freemium/data")  # !! change to your directory !!
 freemium=read.csv("High Note data csv.csv")
 
 
@@ -131,6 +131,13 @@ rvarlistdelta=c("delta1_friend_cnt","dum_delta1_subsfrcnt","delta1_songsListened
                 "delta1_lovedTracks","delta1_posts","delta1_playlists","delta1_shouts")
 crvarlistdelta=c("adopter",rvarlistdelta)
 
+#create a list with recoded values AND the changes from the historical periods
+rvarlistTotal = c("age","age_Missing","male","male_Missing","friend_cnt","subscriber_friend_cnt","avg_friend_age","avg_friend_age_Missing",
+                  "avg_friend_male","avg_friend_male_Missing","friend_country_cnt","songsListened","playlists","posts",
+                  "shouts","shouts_Missing","lovedTracks","tenure","good_country","good_country_Missing", 
+                  "delta1_friend_cnt","dum_delta1_subsfrcnt","delta1_songsListened",
+                  "delta1_lovedTracks","delta1_posts","delta1_playlists","delta1_shouts")
+crvarlistTotal=c("adopter",rvarlistdelta)
 
 
 
@@ -205,6 +212,7 @@ trueadopter = freemium$adopter[validsample]
 
 # compute the predictions for the 10% of most likely adopterers (for validation sample)
 topadopter = as.vector(padopter>=as.numeric(quantile(padopter,probs=.9)))
+
 ( baseconv=sum(trueadopter==1)/length(trueadopter) )  # what proportion would we have expected purely due to chance
 ( actconv=sum(trueadopter[topadopter])/sum(topadopter))  # what proportion did we actually predict
 ( lift=actconv/baseconv )  # what is the ratio of how many we got to what we expected
@@ -251,15 +259,19 @@ trueadopter = freemium$adopter[predsample]
 # train your tree using rpart
 # cp controls the complexity of the tree, larger values like .05 give small trees, .0004 give large trees
 # you can  either set cp to a small value and then prune the tree in the code below or set cp to the value you want here
-ctree.full = rpart(adopter~., data=rfreemium[trainsample,crvarlist], control=rpart.control(cp=0.001), model=TRUE)  # !! try different values of cp !!
+ctree.full = rpart(adopter~., data=rfreemium[trainsample,crvarlist], control=rpart.control(cp=0.003), model=TRUE)  # !! try different values of cp !!
+
+#try a tree with changes added in
+ctree.full = rpart(adopter~., data=rfreemium[trainsample,crvarlistTotal], control=rpart.control(cp=0.0005), model=TRUE)  # !! try different values of cp !!
+
 
 # estimate a model with all the variables (optional -- this uses a different tree algorithm)
 #ctree = tree(adopter~., data=rfreemium[trainsample,crvarlist],mindev=.001)
 
 # these lines are helpful to find the "best" value of cp, !! uncomment to determine best cp -- but this is already done for treeB below !!
 # A good choice of cp for pruning is often the leftmost value for which the mean lies below the horizontal line.
-#printcp(ctree.full)               # display table of optimal prunings based on complexity parameter
-#plotcp(ctree.full)                # visualize cross-validation results
+printcp(ctree.full)               # display table of optimal prunings based on complexity parameter
+plotcp(ctree.full)                # visualize cross-validation results
 
 # prune the tree back !! choose on of the lines below for simple or complex, and leave the other commented out !!
 #ctree=prune(ctree.full,cp=0.0002)  # prune tree using chosen complexity parameter !! better tree (base tree) !!
@@ -267,13 +279,13 @@ ctree = ctree.full   # just use the full tree
 
 # visualize the trees (+++ see #@moretreeplot for manual pruning and additional plots +++)
 par(mfrow=c(1,1))         # reset one graphic per panel
-#plot(ctree); text(ctree)  # simple graph
+plot(ctree); text(ctree)  # simple graph
 #prp(ctree)                # tree graph
 prp(ctree,extra=101,nn=TRUE)  # add the size and proportion of data in the node
 #fancyRpartPlot(ctree)     # fancy graphic  !! uncomment if you load library(rattle) !!
 
 # predict probability (for validation sample)
-padopter = predict(ctree,newdata=rfreemium[validsample,crvarlist],type='vector')
+padopter = predict(ctree,newdata=rfreemium[validsample,crvarlistTotal],type='vector')
 cadopter = (padopter>.25)+0    # notice that we use a cutoff of 25% because it is harder to predict adopters
 trueadopter = freemium$adopter[validsample]
 (results = xtabs(~cadopter+trueadopter) )  # confusion matrix (columns have truth, rows have predictions)
@@ -301,6 +313,8 @@ plot(vlift.tree,axes=F,xlab="Percentile",ylab="Lift")   # plot the lift
 axis(2)  # overlay y axis
 axis(1,at=1:length(vprob),labels=vprob)  # overlay x axis, but use vprob as labels
 
+#from LogR code above to initialize rocpred
+rocpred.lr = prediction(padopter,freemium$adopter[validsample])  # compute predictions using "prediction"
 # compute ROC and AUC
 rocpred.tree = prediction(padopter,freemium$adopter[validsample])  # compute predictions using "prediction"
 rocperf.tree = performance(rocpred.tree, measure = "tpr", x.measure = "fpr")
