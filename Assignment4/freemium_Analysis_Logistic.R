@@ -30,7 +30,7 @@ if (!require(visreg)) {install.packages("visreg"); library(visreg)}
 if (!require(ROCR)) {install.packages("ROCR"); library(ROCR)}
 
 # import dataset from file !!change the directory to where your data is stored!!
-setwd("~/Documents/class/marketing analytics/cases/freemium/data")
+setwd("~/Documents/CMU_2018/Spring2019/MarketingAnalytics_95832/HW_Git/M_A_HW_Git/Assignment4")
 freemium=read.csv("High Note data csv.csv")
 
 
@@ -107,12 +107,12 @@ print(freemium[1,])
 print(freemium[1,varlist])  
 
 # use the describe function in the psych package to generate nicer tables
-describe(freemium[trainsample,varlist],fast=TRUE)
+describe(rfreemium[trainsample,varlist],fast=TRUE)
 # describe the freemium data for adopters and non-adopters, ?? do you see differences between groups ??
-describeBy(freemium[trainsample,varlist],group=freemium$adopter,fast=TRUE)
+describeBy(freemium[trainsample,varlist],group=freemium$adopter[trainsample],fast=TRUE)
 
 # do the same thing with the recoded data (but just for the training data)
-describe(rfreemium[trainsample,rvarlist],fast=TRUE)
+describe(freemium[trainsample,rvarlist],fast=TRUE)
 describeBy(rfreemium[trainsample,rvarlist],group=rfreemium$adopter[trainsample],fast=TRUE)
 
 # boxplots  ?? can you see differences ??
