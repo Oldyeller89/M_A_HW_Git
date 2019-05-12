@@ -75,7 +75,9 @@ confmatrix.summary <- function(predprob,predclass,trueclass) {
 ###############################################################################
 
 # change the directory to where your data is stored
-setwd("~/Documents/class/marketing analytics/cases/cell2cell/data") #!! change to your directory !!
+setwd("~/Documents/CMU_2018/Spring2019/MarketingAnalytics_95832/HW_Git/M_A_HW_Git/Assignment6") #!! change to your directory !!
+
+getwd()
 
 # import dataset from file 
 cell2cell=read.csv("cell2cell_data.csv")
@@ -131,6 +133,14 @@ sum(predsample)
 # choose some common variables
 svarlist=c("Churn","Eqpdays","Months","Recchrge","Revenue","Csa","Customer","Age1","Age2","Mailflag","Retcall")
 nvarlist=c("Churn","Eqpdays","Months","Revenue","Customer","Age1")  # numeric variables only
+
+
+#look at correlations for some specific rows
+cvarlist = c("Churn", "Mou", "Recchrge", "Directas", "Overage", "Roam","Changem","Changer", "")
+
+
+cor(cell2cell[cvarlist])
+
 
 # let's take a look at just one observation
 print(cell2cell[1,svarlist])

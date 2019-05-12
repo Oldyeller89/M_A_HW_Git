@@ -30,8 +30,9 @@ if (!require(psych)) {install.packages("psych"); library(psych)}
 ###############################################################################
 
 # import dataset from file (change the directory to where your data is stored)
-setwd("~/Documents/class/marketing analytics/cases/cell2cell/data") #!! change to your directory !!
+setwd("C:/Users/oldye/Documents/CMU_2018/Spring2019/MarketingAnalytics_95832/HW_Git/M_A_HW_Git/Assignment7") #!! change to your directory !!
 cell2cell=read.csv("cell2cell_data.csv")
+
 
 # set the random number seed so the samples will be the same if regenerated
 set.seed(1248765792)
